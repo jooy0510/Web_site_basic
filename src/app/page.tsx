@@ -48,9 +48,9 @@ async function getData() {
   const data = await response.json();
 
   const results: any[] = data.results;
-  const list: ScheduleItem[] = results.map(({ id, properties }, idx, arr) => {
+  const list: ScheduleItem[] = results?.map(({ id, properties }, idx, arr) => {
     return { ...properties, key: id };
   });
 
-  return list;
+  return list || [];
 }
